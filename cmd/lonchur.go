@@ -16,6 +16,7 @@ func render(c echo.Context, cmp templ.Component) error {
 
 func main() {
 	e := echo.New()
+    e.Static("/static", "assets")
 	e.GET("/", func(c echo.Context) error {
 		return render(c, pages.Home())
 	})
