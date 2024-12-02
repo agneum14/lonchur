@@ -1,0 +1,63 @@
+---
+theme:    dracula
+title:    Lonchur
+subtitle: Yeah, this home page is pretty cool.
+
+sections: [
+  {
+    name: Administration,
+    icon: fa-solid fa-gear,
+    entries: [
+      {
+        name: OPNsense,
+        url:  https://192.168.77.1
+      },
+      {
+        name: EAP,
+        url:  https://192.168.77.2
+      },
+    ]
+  },
+  {
+    name: Media,
+    icon: fa-solid fa-cloud,
+    entries: [
+      {
+        name: OPNsense,
+        url:  https://192.168.77.1
+      },
+      {
+        name: EAP,
+        url:  https://192.168.77.2
+      },
+    ]
+  },
+  {
+    name: Public,
+    icon: fa-solid fa-user,
+    entries: [
+      {
+        name: OPNsense,
+        url:  https://192.168.77.1
+      },
+      {
+        name: EAP,
+        url:  https://192.168.77.2
+      },
+    ]
+  },
+  {
+    name: Miscellaneous,
+    icon: fa-solid fa-paperclip,
+    entries: [
+      {
+        name: OPNsense,
+        url:  https://192.168.77.1
+      },
+      {
+        name: EAP,
+        url:  https://192.168.77.2
+      },
+    ]
+  },
+]

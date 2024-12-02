@@ -1,11 +1,12 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/a-h/templ"
-	"github.com/agneum14/lonchur/views/components"
 	"github.com/agneum14/lonchur/views/pages"
+	"github.com/agneum14/lonchur/yamlconfig"
 	"github.com/labstack/echo/v4"
 )
 
@@ -16,24 +17,15 @@ func render(c echo.Context, cmp templ.Component) error {
 }
 
 func main() {
-	colors := components.Colors{
-		Title:           "#BD93F9",
-		Background:      "#282A36",
-		Text:            "#F8F8F2",
-		BackgroundLight: "#44475A",
-	}
-
-	sectionData := []components.SectionData{
-		{Icon: "fa-solid fa-gear", Title: "Administration"},
-		{Icon: "fa-solid fa-cloud", Title: "Media"},
-		{Icon: "fa-solid fa-user", Title: "Public"},
-		{Icon: "fa-solid fa-paperclip", Title: "Miscellaneous"},
-	}
+    config, colors, err := yamlconfig.Parse()
+    if err != nil {
+        log.Fatal(err)
+    }
 
 	e := echo.New()
 	e.Static("/static", "assets")
 	e.GET("/", func(c echo.Context) error {
-		return render(c, pages.Home(colors, sectionData))
+		return render(c, pages.Home(config, colors))
 	})
 	e.Logger.Fatal(e.Start(":3000"))
 }

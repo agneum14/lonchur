@@ -1,8 +1,9 @@
 package pages
 
+import "github.com/agneum14/lonchur/yamlconfig"
 import "github.com/agneum14/lonchur/views/components"
 
-templ Home(colors components.Colors, sectionData []components.SectionData) {
+templ Home(config yamlconfig.Config, colors yamlconfig.Colors) {
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,13 +17,13 @@ templ Home(colors components.Colors, sectionData []components.SectionData) {
 </head>
 
 <body class={ components.Background(colors) }>
-    @bodyInner(colors, sectionData)
+    @bodyInner(config, colors)
 </body>
 
 </html>
 }
 
-templ bodyInner(colors components.Colors, sectionData []components.SectionData) {
+templ bodyInner(config yamlconfig.Config, colors yamlconfig.Colors) {
 <div class={ components.Background(colors) }>
     <div class="w-[1350px] mx-auto flex gap-2 p-2">
         <img class="h-16 w-16" src="/static/logo.png" />
@@ -41,7 +42,7 @@ templ bodyInner(colors components.Colors, sectionData []components.SectionData) 
     </div>
 </div>
 <div class="w-[1300px] mx-auto grid grid-cols-3 gap-4 mt-8">
-    for _, x := range sectionData {
+    for _, x := range config.Sections {
     @components.Section(colors, x) {
     <div>
         <p>fjdkla</p>

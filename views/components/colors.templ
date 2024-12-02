@@ -1,24 +1,19 @@
 package components
 
-type Colors struct {
-	Title      string
-	Background string
-	Text string
-	BackgroundLight string
-}
+import "github.com/agneum14/lonchur/yamlconfig"
 
-css Title(colors Colors) {
+css Title(colors yamlconfig.Colors) {
 	color: { colors.Title };
 }
 
-css Background(colors Colors) {
+css Background(colors yamlconfig.Colors) {
 	background-color: { colors.Background };
 }
 
-css Text(colors Colors) {
+css Text(colors yamlconfig.Colors) {
     color: { colors.Text };
 }
 
-css BackgroundLight(colors Colors) {
+css BackgroundLight(colors yamlconfig.Colors) {
     background-color: { colors.BackgroundLight };
 }

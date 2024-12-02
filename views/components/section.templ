@@ -1,18 +1,18 @@
 package components
 
-type SectionData struct {
-	Icon  string
-	Title string
-}
+import "github.com/agneum14/lonchur/yamlconfig"
 
-templ Section(colors Colors, data SectionData) {
+templ Section(colors yamlconfig.Colors, section yamlconfig.Section) {
 	<div>
 		<div class="flex items-center gap-2">
-			<i class={ data.Icon, Text(colors), "fa-xl" }></i>
-			<h2 class={ Title(colors), "text-2xl" }>{ data.Title }</h2>
+			<i class={ section.Icon, Text(colors), "fa-xl" }></i>
+			<h2 class={ Title(colors), "text-2xl" }>{ section.Name }</h2>
 		</div>
-		<div class="bg-black">
-			{ children... }
-		</div>
+
+        <div>
+            for _, x := range section.Entries {
+                @Entry(colors, x)
+            }
+        </div>
 	</div>
 }
