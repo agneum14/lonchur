@@ -1,6 +1,18 @@
 package components
 
-templ Section(icon string, title string) {
-<i class={ icon }></i>
-<h2>{ title }</h2>
+type SectionData struct {
+	Icon  string
+	Title string
+}
+
+templ Section(colors Colors, data SectionData) {
+	<div>
+		<div class="flex items-center gap-2">
+			<i class={ data.Icon, Text(colors), "fa-xl" }></i>
+			<h2 class={ Title(colors), "text-2xl" }>{ data.Title }</h2>
+		</div>
+		<div class="bg-black">
+			{ children... }
+		</div>
+	</div>
 }

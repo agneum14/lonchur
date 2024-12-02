@@ -2,36 +2,51 @@ package pages
 
 import "github.com/agneum14/lonchur/views/components"
 
-templ Home(colors components.Colors) {
-	<!DOCTYPE html>
-	<html lang="en">
-		<head>
-			<meta charset="utf-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1"/>
-			<title>Lonchur</title>
-			<link rel="icon" href="/static/logo.png" type="image/x-icon"/>
-			<link rel="stylesheet" href="/static/tailwind.css"/>
-			<script src="https://kit.fontawesome.com/343602021e.js" crossorigin="anonymous"></script>
-		</head>
-		<body class={ components.Background(colors) }>
-			<div class={ components.Background(colors) }>
-				<div class="w-[1350px] mx-auto flex gap-2 p-2">
-					<img class="h-16 w-16" src="/static/logo.png"/>
-					<div>
-						<h1 class={ "text-4xl" , components.Title(colors) }>Lonchur</h1>
-						<span class={ components.Text(colors) }>Yeah, this home page is pretty cool.</span>
-					</div>
-				</div>
-			</div>
-			<div class={ components.BackgroundLight(colors) }>
-				<div class="w-[1350px] mx-auto px-2 py-1">
-					<a class={ "px-1" , components.Text(colors) } href="https://github.com/agneum14/lonchur" target="_blank">
-						Contribute!
-						<i class={ "fa-brands fa-github fa-lg" , components.Text(colors) }></i>
-					</a>
-				</div>
-			</div>
-			@components.Section("fa-brands fa-github", "Test")
-		</body>
-	</html>
+templ Home(colors components.Colors, sectionData []components.SectionData) {
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lonchur</title>
+    <link rel="icon" href="/static/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/tailwind.css" />
+    <script src="https://kit.fontawesome.com/343602021e.js" crossorigin="anonymous"></script>
+</head>
+
+<body class={ components.Background(colors) }>
+    @bodyInner(colors, sectionData)
+</body>
+
+</html>
+}
+
+templ bodyInner(colors components.Colors, sectionData []components.SectionData) {
+<div class={ components.Background(colors) }>
+    <div class="w-[1350px] mx-auto flex gap-2 p-2">
+        <img class="h-16 w-16" src="/static/logo.png" />
+        <div>
+            <h1 class={ "text-4xl" , components.Title(colors) }>Lonchur</h1>
+            <span class={ components.Text(colors) }>Yeah, this home page is pretty cool.</span>
+        </div>
+    </div>
+</div>
+<div class={ components.BackgroundLight(colors) }>
+    <div class="w-[1350px] mx-auto px-2 py-1">
+        <a class={ "px-1" , components.Text(colors) } href="https://github.com/agneum14/lonchur" target="_blank">
+            Contribute!
+            <i class={ "fa-brands fa-github fa-lg" , components.Text(colors) }></i>
+        </a>
+    </div>
+</div>
+<div class="w-[1300px] mx-auto grid grid-cols-3 gap-4 mt-8">
+    for _, x := range sectionData {
+    @components.Section(colors, x) {
+    <div>
+        <p>fjdkla</p>
+    </div>
+    }
+    }
+</div>
 }
