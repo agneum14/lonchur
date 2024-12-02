@@ -1,0 +1,24 @@
+package components
+
+type Colors struct {
+	Title      string
+	Background string
+	Text string
+	BackgroundLight string
+}
+
+css Title(colors Colors) {
+	color: { colors.Title };
+}
+
+css Background(colors Colors) {
+	background-color: { colors.Background };
+}
+
+css Text(colors Colors) {
+    color: { colors.Text };
+}
+
+css BackgroundLight(colors Colors) {
+    background-color: { colors.BackgroundLight };
+}
