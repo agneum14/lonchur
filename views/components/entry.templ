@@ -1,9 +1,21 @@
 package components
 
-import "github.com/agneum14/lonchur/yamlconfig"
+import (
+"github.com/agneum14/lonchur/yamlconfig"
+"strings"
+)
+
+func imgSrc(entryName string) string {
+return "/static/" + strings.ToLower(entryName) + ".png"
+}
 
 templ Entry(colors yamlconfig.Colors, entry yamlconfig.Entry) {
-    <div>
-        <p>hello</p>
-    </div>
+<div>
+    <a target="_blank" href={ templ.SafeURL(entry.Url) }>
+        <div class={ BackgroundLight(colors), "flex gap-1 border-solid rounded-md border-2 border-[#282A36] hover:border-[#FF79C6]" }>
+            <img class="h-6 w-6" src={ imgSrc(entry.Name) } />
+            <span class={ Text(colors) }>{ entry.Name }</span>
+        </div>
+    </a>
+</div>
 }

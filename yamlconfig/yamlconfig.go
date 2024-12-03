@@ -29,6 +29,7 @@ type Colors struct {
 	Background      string `yaml:"background"`
 	Text            string `yaml:"text"`
 	BackgroundLight string `yaml:"background-light"`
+	Highlight       string `yaml:"highlight"`
 }
 
 func Parse() (Config, Colors, error) {

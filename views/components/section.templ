@@ -9,7 +9,7 @@ templ Section(colors yamlconfig.Colors, section yamlconfig.Section) {
 			<h2 class={ Title(colors), "text-2xl" }>{ section.Name }</h2>
 		</div>
 
-        <div>
+        <div class="flex flex-col gap-1">
             for _, x := range section.Entries {
                 @Entry(colors, x)
             }
