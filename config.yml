@@ -3,61 +3,46 @@ theme:    dracula
 title:    Lonchur
 subtitle: Yeah, this home page is pretty cool.
 
-sections: [
-  {
-    name: Administration,
-    icon: fa-solid fa-gear,
-    entries: [
-      {
-        name: OPNsense,
+sections:
+  - name: Administration
+    icon: fa-solid fa-gear
+    entries:
+      - name: OPNsense
         url:  https://192.168.77.1
-      },
-      {
-        name: EAP,
+      - name: EAP
         url:  https://192.168.77.2
-      },
-    ]
-  },
-  {
-    name: Media,
-    icon: fa-solid fa-cloud,
-    entries: [
-      {
-        name: OPNsense,
+      - name: Syncthing
+        url:  https://192.168.77.2
+      - name: Portainer
+        url:  https://192.168.77.2
+      - name: Vaultwarden
+        url:  https://192.168.77.2
+  - name: Media
+    icon: fa-solid fa-cloud
+    entries:
+      - name: Jellyfin
         url:  https://192.168.77.1
-      },
-      {
-        name: EAP,
+      - name: Nextcloud
         url:  https://192.168.77.2
-      },
-    ]
-  },
-  {
-    name: Public,
-    icon: fa-solid fa-user,
-    entries: [
-      {
-        name: OPNsense,
+      - name: Transmission
+        url:  https://192.168.77.2
+      - name: Prowlarr
+        url:  https://192.168.77.2
+      - name: Sonarr
+        url:  https://192.168.77.2
+      - name: Radarr
+        url:  https://192.168.77.2
+  - name: Public
+    icon: fa-solid fa-user
+    entries:
+      - name: GitHub
+        url:  https://github.com/agneum14
+  - name: Miscellaneous
+    icon: fa-solid fa-paperclip
+    entries:
+      - name: Mealie
         url:  https://192.168.77.1
-      },
-      {
-        name: EAP,
-        url:  https://192.168.77.2
-      },
-    ]
-  },
-  {
-    name: Miscellaneous,
-    icon: fa-solid fa-paperclip,
-    entries: [
-      {
-        name: OPNsense,
+      - name: Silly Tavern
         url:  https://192.168.77.1
-      },
-      {
-        name: EAP,
-        url:  https://192.168.77.2
-      },
-    ]
-  },
-]
+      - name: DWC
+        url:  https://192.168.77.1

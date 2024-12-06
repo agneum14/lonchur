@@ -7,13 +7,13 @@ import (
 )
 
 func imgSrc(entryName string) string {
-return "/static/" + strings.ToLower(entryName) + ".png"
+return "/static/" + strings.ReplaceAll(strings.ToLower(entryName), " ", "_") + ".png"
 }
 
 templ Entry(colors yamlconfig.Colors, entry yamlconfig.Entry) {
 <div>
     <a target="_blank" href={ templ.SafeURL(entry.Url) }>
-        <div class={ BackgroundLight(colors), "flex gap-1 border-solid rounded-md border-2", fmt.Sprintf("border-[%s] hover:border-[%s]", colors.Background, colors.Highlight) }>
+        <div class={ BackgroundLight(colors), "flex gap-1 border-solid rounded-md border-2" , fmt.Sprintf("border-[%s] hover:border-[%s]", colors.Background, colors.Highlight) }>
             <img class="h-6 w-6" src={ imgSrc(entry.Name) } />
             <span class={ Text(colors) }>{ entry.Name }</span>
         </div>
